@@ -3,9 +3,9 @@ package com.devsuperior.dsmeta.dto;
 import java.time.LocalDate;
 
 import com.devsuperior.dsmeta.entities.Sale;
+import org.springframework.data.domain.Page;
 
 public class SaleMinDTO {
-
 	private Long id;
 	private Double amount;
 	private LocalDate date;
@@ -21,6 +21,8 @@ public class SaleMinDTO {
 		amount = entity.getAmount();
 		date = entity.getDate();
 	}
+
+
 
 	public Long getId() {
 		return id;
