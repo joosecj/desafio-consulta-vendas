@@ -10,17 +10,20 @@ import com.devsuperior.dsmeta.entities.Sale;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface SaleRepository extends JpaRepository<Sale, Long> {
-    @Query("SELECT obj FROM Sale obj WHERE obj.date BETWEEN :min AND :max ORDER BY obj.amount DESC")
-    Page<Sale> findSales(LocalDate min, LocalDate max, Pageable pageable);
-
     @Query("SELECT obj FROM Sale obj WHERE obj.date BETWEEN :min AND :max AND UPPER(obj.seller.name) LIKE UPPER(CONCAT('%', :name, '%')) ")
-    Page<SaleReportDTO> findReport(LocalDate min, LocalDate max, String name, Pageable pageable);
+    Page<Sale> searchSales(LocalDate min, LocalDate max, String name, Pageable pageable);
+
+    @Query("SELECT obj FROM Sale obj JOIN FETCH obj.seller WHERE obj in :sales")
+    List<Sale> searchSalesWithSellers(List<Sale> sales);
 
     @Query("SELECT new com.devsuperior.dsmeta.dto.SaleSummaryDTO(obj.seller.name, SUM(obj.amount)) "
             + "FROM Sale obj "
             + "WHERE obj.date BETWEEN :min AND :max "
             + "GROUP BY obj.seller.name" )
-    Page<SaleSummaryDTO> findSummary(LocalDate min, LocalDate max, Pageable pageable);
+    Page<SaleSummaryDTO> searchSalesBySeller(LocalDate min, LocalDate max, Pageable pageable);
+
+
 }

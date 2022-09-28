@@ -4,7 +4,7 @@
     <img src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot"/>
     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>  
 </p>    
-Projeto trata-se de um sistema de vendas (Sale) e vendedores (Seller) proposta pela [DevSuperior - Escola de programação](https://devsuperior.com.br/). Onde o usuário informa, opcionalmente, os dados e o sistema retorna uma listagem paginada com relatório de vendas contendo id, data, quantia vendida e nome do vendedor. 
+Projeto trata-se de um sistema de vendas (Sale) e vendedores (Seller) proposta pela [DevSuperior ](https://devsuperior.com.br/) . Onde o usuário informa, opcionalmente, os dados e o sistema retorna uma listagem paginada com relatório de vendas contendo id, data, quantia vendida e nome do vendedor. 
 
 <h2>Regras</h2>
 
@@ -34,7 +34,7 @@ Projeto trata-se de um sistema de vendas (Sale) e vendedores (Seller) proposta p
   1. [IN] O usuário informa, opcionalmente, data inicial, data final.
 
   2. [OUT] O sistema informa uma listagem contendo nome do vendedor e soma de vendas deste vendedor
-    no período informado.
+      no período informado.
 
     **Informações complementares:**
 
